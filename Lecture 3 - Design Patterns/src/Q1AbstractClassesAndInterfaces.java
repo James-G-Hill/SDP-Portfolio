@@ -1,8 +1,6 @@
 /**
  * Answers for the lesson 3 exercises, question 1 follow.
  * Three differences between abstract classes and interfaces in Java 8.
- * 
- * @author James
  */
 public class Q1AbstractClassesAndInterfaces {}
 
