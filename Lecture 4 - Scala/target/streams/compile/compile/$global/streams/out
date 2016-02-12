@@ -2,22 +2,21 @@
 [0m[[0mdebug[0m] [0mInitial source changes: [0m
 [0m[[0mdebug[0m] [0m	removed:Set()[0m
 [0m[[0mdebug[0m] [0m	added: Set()[0m
-[0m[[0mdebug[0m] [0m	modified: Set(C:\Users\James\Documents\NetBeansProjects\SDP Portfolio\Lecture 4 - Scala\src\main\scala\Expression\Expressions.scala)[0m
+[0m[[0mdebug[0m] [0m	modified: Set(C:\Users\James\Documents\NetBeansProjects\SDP Portfolio\Lecture 4 - Scala\src\main\scala\Methods\Methods.scala)[0m
 [0m[[0mdebug[0m] [0mRemoved products: Set()[0m
 [0m[[0mdebug[0m] [0mExternal API changes: API Changes: Set()[0m
 [0m[[0mdebug[0m] [0mModified binary dependencies: Set()[0m
-[0m[[0mdebug[0m] [0mInitial directly invalidated sources: Set(C:\Users\James\Documents\NetBeansProjects\SDP Portfolio\Lecture 4 - Scala\src\main\scala\Expression\Expressions.scala)[0m
+[0m[[0mdebug[0m] [0mInitial directly invalidated sources: Set(C:\Users\James\Documents\NetBeansProjects\SDP Portfolio\Lecture 4 - Scala\src\main\scala\Methods\Methods.scala)[0m
 [0m[[0mdebug[0m] [0m[0m
 [0m[[0mdebug[0m] [0mSources indirectly invalidated by:[0m
 [0m[[0mdebug[0m] [0m	product: Set()[0m
 [0m[[0mdebug[0m] [0m	binary dep: Set()[0m
 [0m[[0mdebug[0m] [0m	external source: Set()[0m
-[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(C:\Users\James\Documents\NetBeansProjects\SDP Portfolio\Lecture 4 - Scala\src\main\scala\Expression\Expressions.scala)[0m
-[0m[[0mdebug[0m] [0mRecompiling all 1 sources: invalidated sources (1) exceeded 50.0% of all sources[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(C:\Users\James\Documents\NetBeansProjects\SDP Portfolio\Lecture 4 - Scala\src\main\scala\Methods\Methods.scala)[0m
 [0m[[0minfo[0m] [0mCompiling 1 Scala source to C:\Users\James\Documents\NetBeansProjects\SDP Portfolio\Lecture 4 - Scala\target\scala-2.11\classes...[0m
 [0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.11.4[0m
 [0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.11.4[0m
-[0m[[0mdebug[0m] [0mRunning cached compiler 9f98b22, interfacing (CompilerInterface) with Scala compiler version 2.11.4[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 7e1b81e, interfacing (CompilerInterface) with Scala compiler version 2.11.4[0m
 [0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
 [0m[[0mdebug[0m] [0m	-unchecked[0m
 [0m[[0mdebug[0m] [0m	-deprecation[0m
@@ -25,7 +24,7 @@
 [0m[[0mdebug[0m] [0m	C:\Program Files\Java\jdk1.8.0_05\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_05\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_05\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_05\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_05\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_05\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_05\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_05\jre\classes;C:\Users\James\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.11.4.jar[0m
 [0m[[0mdebug[0m] [0m	-classpath[0m
 [0m[[0mdebug[0m] [0m	C:\Users\James\Documents\NetBeansProjects\SDP Portfolio\Lecture 4 - Scala\target\scala-2.11\classes[0m
-[0m[[0mdebug[0m] [0mScala compilation took 14.894403934 s[0m
+[0m[[0mdebug[0m] [0mScala compilation took 13.726131082 s[0m
 [0m[[0mdebug[0m] [0mNew invalidations:[0m
 [0m[[0mdebug[0m] [0m	Set()[0m
 [0m[[0mdebug[0m] [0mInitial set of included nodes: Set()[0m
