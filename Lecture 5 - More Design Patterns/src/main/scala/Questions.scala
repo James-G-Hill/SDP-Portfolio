@@ -21,4 +21,11 @@ package Strategy
 // concrete objects that it can work with; the client doesn't need to reference
 // the concrete objects as it always works through interfaces.
 // 
+// Q5
+// 
+// A problem with keeping object construction details within the object,
+// and particularly within the constructor, is that the constructor becomes
+// extraordinarily complex if the object is complex (this is called constructor
+// bloat) and having all of the code within the object makes it less modular.
+// 
 // 
