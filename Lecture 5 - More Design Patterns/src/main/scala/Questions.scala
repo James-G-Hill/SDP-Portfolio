@@ -28,4 +28,35 @@ package Strategy
 // extraordinarily complex if the object is complex (this is called constructor
 // bloat) and having all of the code within the object makes it less modular.
 // 
+// Q7.a.
 // 
+// The Facade pattern is used as a simplified interface to a complex piece of 
+// code.
+// 
+// Q7.b.
+// 
+// The Facade pattern is used if: a simplified interface is required for a
+// complex system; abstractions and implementations of a sybsystem are tightly
+// coupled; an entry point is needed for multiple levels of layered software;
+// a system is very complex or difficult to understand.
+// 
+// Q9
+// 
+// You should use the bridge design pattern when you have a proliferation of
+// classes resulting from a coupled interface and numerous implementations
+// resulting from the need to map orthoganol class hierarchies.
+// 
+// Q11.a
+// 
+// The composite pattern creates an interface that allows individual objects
+// and groups of the same object to be manipulated with a single set of methods.
+// 
+// Q11.b
+// 
+// The composite pattern should be used when multiple objects need to be treated
+// in the same way and have nearly identical code to handle them.
+// 
+// Q11.c
+// 
+// The four participants of a composite design pattern are: Component; Leaf;
+// Composite; and Client.
