@@ -2,6 +2,7 @@ package caseclasses
 
 import com.atomicscala.AtomicTest._
 
+// Q.15 & Q.16
 object caseClassesTest extends App {
   
   val p = Person("Jane", "Smile", "jane@smile.com")

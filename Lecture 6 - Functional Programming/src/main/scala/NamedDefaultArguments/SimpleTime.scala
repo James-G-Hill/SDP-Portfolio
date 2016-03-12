@@ -2,6 +2,7 @@ package NamedDefaultArguments
 
 import com.atomicscala.AtomicTest._
 
+// Q.6 & Q.7
 object SimpleTimeTest extends App {
   
   val t = new SimpleTime(hours=5, minutes=30)

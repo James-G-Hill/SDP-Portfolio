@@ -2,6 +2,7 @@ package forecast
 
 import com.atomicscala.AtomicTest._
 
+// Q.1 & Q.2
 object ForecastTest extends App {
   
   forecast(100) is "Sunny"

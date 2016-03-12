@@ -2,7 +2,8 @@ package classargs
 
 import com.atomicscala.AtomicTest._
 
-object TestArgs extends App {
+// Q.3 & Q.4 & Q.5
+object TestClassArgs extends App {
   
   def squareThem(them: Int*): Int = {
     var sum = 0

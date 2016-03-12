@@ -2,6 +2,7 @@ package NamedDefaultArguments
 
 import com.atomicscala.AtomicTest._
 
+// Q.8 and Q.9
 object PlanetClass extends App {
   
   val p = new Planet(name = "Mercury", description = "Small and hot planet", moons = 0)

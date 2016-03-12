@@ -2,6 +2,7 @@ package NamedDefaultArguments
 
 import com.atomicscala.AtomicTest._
 
+// Q.10
 object ItemTest extends App {
   
   val flour = new Item(name = "flour", 4)
