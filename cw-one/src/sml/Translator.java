@@ -102,6 +102,9 @@ public class Translator {
                 s1 = scanInt();
                 s2 = scanInt();
                 return new MultiplyInstruction(label, r, s1, s2);
+            case "out":
+                r = scanInt();
+                return new OutInstruction(label, r);
             case "sub":
                 r = scanInt();
                 s1 = scanInt();
