@@ -2,9 +2,14 @@ package sml;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * The translator of a <b>S</b><b>M</b>al<b>L</b> program.
@@ -27,7 +32,7 @@ public class Translator {
     // translate the small program in the file into lab (the labels) and
     // prog (the program)
     // return "no errors were detected"
-    public boolean readAndTranslate(Labels lab, ArrayList<Instruction> prog) {
+    public boolean readAndTranslate(Labels lab, ArrayList<Instruction> prog) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
         try (Scanner sc = new Scanner(new File(fileName))) {
             // Scanner attached to the file chosen by the user
@@ -72,7 +77,7 @@ public class Translator {
     // line should consist of an MML instruction, with its label already
     // removed. Translate line into an instruction with label label
     // and return the instruction
-    public Instruction getInstruction(String label) {
+    public Instruction getInstruction(String label) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         int s1; // Possible operands of the instruction
         int s2;
         int r;
@@ -83,39 +88,77 @@ public class Translator {
             return null;
 
         String ins = scan();
-        switch (ins) {
-            case "add":
-                r = scanInt();
-                s1 = scanInt();
-                s2 = scanInt();
-                return new AddInstruction(label, r, s1, s2);
-            case "div":
-                r = scanInt();
-                s1 = scanInt();
-                s2 = scanInt();
-                return new DivideInstruction(label, r, s1, s2);
-            case "bnz":
-                s1 = scanInt();
-                l2 = scan();
-                return new BnzInstruction(label, s1, l2);
-            case "lin":
-                r = scanInt();
-                s1 = scanInt();
-                return new LinInstruction(label, r, s1);
-            case "mul":
-                r = scanInt();
-                s1 = scanInt();
-                s2 = scanInt();
-                return new MultiplyInstruction(label, r, s1, s2);
-            case "out":
-                r = scanInt();
-                return new OutInstruction(label, r);
-            case "sub":
-                r = scanInt();
-                s1 = scanInt();
-                s2 = scanInt();
-                return new SubtractInstruction(label, r, s1, s2);
+        
+        try {
+            // Get class name
+            Class cls = Class.forName("sml." + ins.trim().toUpperCase().charAt(0) + ins.substring(1).toLowerCase() + "Instruction");
+            
+            // Get constructors and loop through them
+            Constructor[] cons = cls.getConstructors();
+            for(Constructor c : cons) {
+                
+                int paramCount = c.getParameterCount();
+                
+                // If parameter count > 2 then loop through the types
+                if(paramCount > 2){
+                    
+                    ArrayList<Object> params = new ArrayList<>();
+                    paramCount = 0;
+                    
+                    Class[] paramTypes = c.getParameterTypes();
+                    for(Class cl : paramTypes) {
+                        
+                        // Scan variables according to class type
+                        switch(cl.getSimpleName()) {
+                            case "String": params.add(paramCount, scan());
+                            case "Int": params.add(paramCount, scanInt());
+                        }
+                        
+                        paramCount =+ 1;
+                    }
+                    
+                    Instruction i = (Instruction) c.newInstance(params.spliterator());
+                    
+                    return i;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Translator.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+//        switch (ins) {
+//            case "add":
+//                r = scanInt();
+//                s1 = scanInt();
+//                s2 = scanInt();
+//                return new AddInstruction(label, r, s1, s2);
+//            case "div":
+//                r = scanInt();
+//                s1 = scanInt();
+//                s2 = scanInt();
+//                return new DivideInstruction(label, r, s1, s2);
+//            case "bnz":
+//                s1 = scanInt();
+//                l2 = scan();
+//                return new BnzInstruction(label, s1, l2);
+//            case "lin":
+//                r = scanInt();
+//                s1 = scanInt();
+//                return new LinInstruction(label, r, s1);
+//            case "mul":
+//                r = scanInt();
+//                s1 = scanInt();
+//                s2 = scanInt();
+//                return new MultiplyInstruction(label, r, s1, s2);
+//            case "out":
+//                r = scanInt();
+//                return new OutInstruction(label, r);
+//            case "sub":
+//                r = scanInt();
+//                s1 = scanInt();
+//                s2 = scanInt();
+//                return new SubtractInstruction(label, r, s1, s2);
+//        }
 
         // You will have to write code here for the other instructions.
 
