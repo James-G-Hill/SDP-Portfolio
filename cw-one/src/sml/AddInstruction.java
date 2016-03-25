@@ -1,7 +1,7 @@
 package sml;
 
 /**
- * This class ....
+ * This class adds the contents of two registers.
  *
  * @author someone
  */
