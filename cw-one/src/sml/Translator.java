@@ -77,6 +77,7 @@ public class Translator {
         int s2;
         int r;
         int x;
+        String l2;
 
         if (line.equals(""))
             return null;
@@ -93,6 +94,10 @@ public class Translator {
                 s1 = scanInt();
                 s2 = scanInt();
                 return new DivideInstruction(label, r, s1, s2);
+            case "bnz":
+                s1 = scanInt();
+                l2 = scan();
+                return new BnzInstruction(label, s1, l2);
             case "lin":
                 r = scanInt();
                 s1 = scanInt();
@@ -123,9 +128,7 @@ public class Translator {
      */
     private String scan() {
         line = line.trim();
-        if (line.length() == 0)
-            return "";
-
+        if (line.length() == 0) return "";
         int i = 0;
         while (i < line.length() && line.charAt(i) != ' ' && line.charAt(i) != '\t') {
             i = i + 1;
