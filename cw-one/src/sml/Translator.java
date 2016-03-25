@@ -92,6 +92,16 @@ public class Translator {
                 r = scanInt();
                 s1 = scanInt();
                 return new LinInstruction(label, r, s1);
+            case "mul":
+                r = scanInt();
+                s1 = scanInt();
+                s2 = scanInt();
+                return new SubtractInstruction(label, r, s1, s2);
+            case "sub":
+                r = scanInt();
+                s1 = scanInt();
+                s2 = scanInt();
+                return new SubtractInstruction(label, r, s1, s2);
         }
 
         // You will have to write code here for the other instructions.
