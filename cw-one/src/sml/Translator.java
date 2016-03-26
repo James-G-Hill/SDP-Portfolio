@@ -77,11 +77,6 @@ public class Translator {
     // removed. Translate line into an instruction with label label
     // and return the instruction
     public Instruction getInstruction(String label) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-        int s1; // Possible operands of the instruction
-        int s2;
-        int r;
-        int x;
-        String l2;
 
         if (line.equals("")) return null;
 
