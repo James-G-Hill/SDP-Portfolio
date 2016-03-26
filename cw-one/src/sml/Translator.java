@@ -101,17 +101,15 @@ public class Translator {
                     Class[] paramTypes = c.getParameterTypes();
                     for(int i = 1; i < paramTypes.length; i++) {
                         
-                        System.out.println(paramTypes[i].getSimpleName());
-                        
                         // Scan variables according to class type
                         switch(paramTypes[i].getSimpleName()) {
-                            case "String": params.add(scan());
-                            case "int": params.add(scanInt());
+                            case "String": params.add(i, scan());
+                                break;
+                            case "int": params.add(i, scanInt());
+                                break;
                         }
                         
                     }
-                    
-                    System.out.println(params.toString());
                     
                     Instruction i = (Instruction) c.newInstance(params.toArray());
                     
@@ -121,9 +119,7 @@ public class Translator {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Translator.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        // You will have to write code here for the other instructions.
-
+        
         return null;
     }
 
