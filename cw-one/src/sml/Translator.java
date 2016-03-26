@@ -79,7 +79,7 @@ public class Translator {
     public Instruction getInstruction(String label) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
         if (line.equals("")) return null;
-
+        
         try {
             // Get class name
             String ins = scan();
@@ -92,29 +92,32 @@ public class Translator {
                 int paramCount = c.getParameterCount();
                 
                 // If parameter count > 2 then loop through the types
-                if(paramCount > 2){
                     
                     ArrayList<Object> params = new ArrayList<>();
                     
                     params.add(label);
                     
                     Class[] paramTypes = c.getParameterTypes();
-                    for(int i = 1; i < paramTypes.length; i++) {
-                        
-                        // Scan variables according to class type
-                        switch(paramTypes[i].getSimpleName()) {
-                            case "String": params.add(i, scan());
-                                break;
-                            case "int": params.add(i, scanInt());
-                                break;
+                    
+                    if(!(paramCount == 2 && paramTypes[0].getSimpleName().equalsIgnoreCase("String") && paramTypes[1].getSimpleName().equalsIgnoreCase("String"))) {
+                    
+                        for(int i = 1; i < paramTypes.length; i++) {
+
+                            // Scan variables according to class type
+                            switch(paramTypes[i].getSimpleName()) {
+                                case "String": params.add(i, scan());
+                                    break;
+                                case "int": params.add(i, scanInt());
+                                    break;
+                            }
+
                         }
+                        
+                        Instruction i = (Instruction) c.newInstance(params.toArray());
+                        return i;
                         
                     }
                     
-                    Instruction i = (Instruction) c.newInstance(params.toArray());
-                    
-                    return i;
-                }
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Translator.class.getName()).log(Level.SEVERE, null, ex);
