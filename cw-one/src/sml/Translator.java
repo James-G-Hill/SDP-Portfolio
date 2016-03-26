@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -84,13 +83,11 @@ public class Translator {
         int x;
         String l2;
 
-        if (line.equals(""))
-            return null;
+        if (line.equals("")) return null;
 
-        String ins = scan();
-        
         try {
             // Get class name
+            String ins = scan();
             Class cls = Class.forName("sml." + ins.trim().toUpperCase().charAt(0) + ins.substring(1).toLowerCase() + "Instruction");
             
             // Get constructors and loop through them
@@ -103,21 +100,25 @@ public class Translator {
                 if(paramCount > 2){
                     
                     ArrayList<Object> params = new ArrayList<>();
-                    paramCount = 0;
+                    
+                    params.add(label);
                     
                     Class[] paramTypes = c.getParameterTypes();
-                    for(Class cl : paramTypes) {
+                    for(int i = 1; i < paramTypes.length; i++) {
+                        
+                        System.out.println(paramTypes[i].getSimpleName());
                         
                         // Scan variables according to class type
-                        switch(cl.getSimpleName()) {
-                            case "String": params.add(paramCount, scan());
-                            case "Int": params.add(paramCount, scanInt());
+                        switch(paramTypes[i].getSimpleName()) {
+                            case "String": params.add(scan());
+                            case "int": params.add(scanInt());
                         }
                         
-                        paramCount =+ 1;
                     }
                     
-                    Instruction i = (Instruction) c.newInstance(params.spliterator());
+                    System.out.println(params.toString());
+                    
+                    Instruction i = (Instruction) c.newInstance(params.toArray());
                     
                     return i;
                 }
@@ -125,40 +126,6 @@ public class Translator {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Translator.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-//        switch (ins) {
-//            case "add":
-//                r = scanInt();
-//                s1 = scanInt();
-//                s2 = scanInt();
-//                return new AddInstruction(label, r, s1, s2);
-//            case "div":
-//                r = scanInt();
-//                s1 = scanInt();
-//                s2 = scanInt();
-//                return new DivideInstruction(label, r, s1, s2);
-//            case "bnz":
-//                s1 = scanInt();
-//                l2 = scan();
-//                return new BnzInstruction(label, s1, l2);
-//            case "lin":
-//                r = scanInt();
-//                s1 = scanInt();
-//                return new LinInstruction(label, r, s1);
-//            case "mul":
-//                r = scanInt();
-//                s1 = scanInt();
-//                s2 = scanInt();
-//                return new MultiplyInstruction(label, r, s1, s2);
-//            case "out":
-//                r = scanInt();
-//                return new OutInstruction(label, r);
-//            case "sub":
-//                r = scanInt();
-//                s1 = scanInt();
-//                s2 = scanInt();
-//                return new SubtractInstruction(label, r, s1, s2);
-//        }
 
         // You will have to write code here for the other instructions.
 
