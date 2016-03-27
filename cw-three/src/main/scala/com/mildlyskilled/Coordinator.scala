@@ -5,7 +5,6 @@ package com.mildlyskilled
   * Make this an actor and write a message handler for at least the
   * set method.
   */
-
 object Coordinator {
   
   // Number of pixels we're waiting for to be set.

@@ -69,6 +69,7 @@ class Scene private(val objects: List[Shape], val lights: List[Light]) {
     // color of a pixel.  The actor need not receive any messages.
 
     for (y <- 0 until height) {
+      
       for (x <- 0 until width) {
 
         // This loop body can be sequential.
@@ -96,6 +97,7 @@ class Scene private(val objects: List[Shape], val lights: List[Light]) {
 
         Coordinator.set(x, y, colour)
       }
+      
     }
   }
 

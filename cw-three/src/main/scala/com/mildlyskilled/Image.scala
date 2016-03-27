@@ -1,6 +1,7 @@
 package com.mildlyskilled
 
 class Image (val width: Int, val height: Int){
+  
   import java.awt.image.BufferedImage
   import java.io.File
   import javax.imageio.ImageIO
@@ -17,4 +18,5 @@ class Image (val width: Int, val height: Int){
     val f = new File(file)
     ImageIO.write(im, "png", f)
   }
+  
 }
